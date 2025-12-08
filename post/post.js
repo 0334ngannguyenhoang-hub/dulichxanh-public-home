@@ -17,7 +17,7 @@ main();
    LOAD BÀI VIẾT
 ============================================ */
 async function loadPost(postId) {
-  const res = await fetch(`http://localhost:3000/public/posts/${postId}`);
+  const res = await fetch(`https://dulichxanh-backend.onrender.com/public/posts/${postId}`);
   if (!res.ok) {
     const err = await res.json().catch(()=>({error:"Server error"}));
     console.error("LOAD POST ERROR:", err);
@@ -92,7 +92,7 @@ function increaseView(id) {
    BÀI ĐỌC NHIỀU
 ============================================ */
 async function loadTrending(categories = []) {
-  const res = await fetch("http://localhost:3000/public/posts");
+  const res = await fetch("https://dulichxanh-backend.onrender.com/public/posts");
   const all = await res.json();
   const views = JSON.parse(localStorage.getItem("post_views_v1") || "{}");
 
@@ -123,7 +123,7 @@ async function loadTrending(categories = []) {
    CÙNG CHỦ ĐỀ
 ============================================ */
 async function loadRelated(categories = [], currentId) {
-  const res = await fetch("http://localhost:3000/public/posts");
+  const res = await fetch("https://dulichxanh-backend.onrender.com/public/posts");
   const all = await res.json();
 
   const related = all

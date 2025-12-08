@@ -83,7 +83,7 @@ renderSubButtons();
 // Load dữ liệu
 // ===============================================
 async function loadCategory() {
-  const res = await fetch("http://localhost:3000/home");
+  const res = await fetch("https://dulichxanh-backend.onrender.com/home");
   const data = await res.json();
 
   const all = [
