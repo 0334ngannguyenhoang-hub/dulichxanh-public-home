@@ -1,0 +1,253 @@
+/* ===============================
+      CATEGORY PAGE
+=============================== */
+
+.category-header,
+.category-content {
+  padding-right: 90px !important;   
+}
+
+
+.cat-main {
+  padding-right: 20px;
+}
+
+.cat-right {
+  padding-left: 10px;
+}
+
+.category-header h1 {
+  font-family: "Merriweather";
+  font-size: 42px;
+  margin-top: 40px;
+  margin-bottom: 12px;
+  color: #3c6526;
+  text-align: center;
+}
+
+.subcategory-list {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 10px 0 40px;
+}
+
+.subcategory-list button {
+  padding: 10px 20px;
+  background: #e8f3e3;
+  border: 1px solid #3c6526;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.subcategory-list button.active {
+  background: #3c6526;
+  color: white;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 32px;
+  margin-bottom: 50px;
+}
+
+/* MAIN BIG ARTICLE */
+.cat-main img {
+  width: 100%;
+  height: 330px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.cat-main .title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 12px 0 10px;
+  color: #2b3e20;
+}
+
+/* SIDE LIST */
+.cat-side .item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.cat-side img {
+  width: 120px;
+  height: 90px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* ======================
+   BANNER (CẦN COPY TỪ HOME)
+====================== */
+.banner-carousel {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.banner-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+.banner-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-slide.active {
+  opacity: 1;
+}
+
+/* ======================
+   CATEGORY – 2 COLUMN
+====================== */
+.category-grid {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+/* ==== CỘT TRÁI ==== */
+.cat-main .big-article img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.cat-main .big-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 14px 0 8px;
+  color: #2b3e20;
+}
+
+.cat-main .big-sapo {
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.cat-main .big-author {
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.cat-main .small-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.cat-main .small-item img {
+  width: 180px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.small-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2b3e20;
+}
+
+/* ==== CỘT PHẢI ==== */
+.cat-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cat-adv {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.side-title {
+  font-size: 22px;
+  color: #2b3e20;
+  border-left: 8px solid #3c6526;
+  padding-left: 10px;
+}
+
+.cat-trending .trend-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.cat-trending .trend-item:hover {
+  transform: translateX(4px);
+}
+
+.cat-trending img {
+  width: 110px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.trend-item strong {
+  font-size: 16px;
+  color: #2b3e20;
+}
+
+.trend-item small {
+  color: #666;
+}
+
+/* MENU STICKY CHO CATEGORY */
+.menu {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+/* BACK TO TOP */
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background: #5f8d3f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===== POPUP THỜI TIẾT ===== */ .weather-popup { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 9999; } .weather-popup.hidden { display: none; } .weather-box { background: white; width: 320px; padding: 20px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.2); text-align: center; font-family: 'Inter'; } .weather-box h3 { margin-top: 0; font-family: 'Merriweather'; } .weather-box button { margin-top: 15px; background: #5f8d3f; border: none; padding: 8px 16px; border-radius: 6px; color: white; cursor: pointer; }

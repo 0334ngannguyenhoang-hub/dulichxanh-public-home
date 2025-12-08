@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tạp chí Du lịch Xanh – Trang chủ</title>
+  <link rel="stylesheet" href="home/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+ <!-- ===================== TOP BAR ===================== -->
+<div class="topbar">
+  <div class="left">
+    <span>Thứ sáu ngày 28/11/2025</span>
+    <span>|</span>
+    <span>22:15 GMT +7</span>
+    <span>|</span>
+    <span>Thời tiết:</span>
+    <img src="/img/weather.png" class="weather-icon">
+  </div>
+
+  <div class="right">
+    <span>Hotline: 0123456789</span>
+    <span>|</span>
+    <span>📧 Liên hệ tòa soạn</span>
+
+    <input type="text" placeholder="Tìm kiếm...">
+    <button class="search-btn">🔍</button>
+    
+  </div>
+</div>
+
+<!-- ===================== LOGO + BANNER ===================== -->
+<header class="header">
+  <div class="container header-inner">
+
+    <div class="logo">
+      <a href="/index.html">
+      <img src="/img/logo.png" alt="logo">
+      </a>
+    </div>
+
+    <div class="banner-carousel">
+      <div class="banner-slide"><img src="/img/banner1.jpg" alt="banner1"></div>
+      <div class="banner-slide"><img src="/img/banner2.jpg" alt="banner2"></div>
+      <div class="banner-slide"><img src="/img/banner3.jpg" alt="banner3"></div>
+    </div>
+  </div>
+</header>
+
+
+
+  <!-- ===================== MENU ===================== -->
+  <nav class="menu">
+    <div class="menu-inner">
+
+      <ul class="menu-center">
+
+        <li><a href="/index.html">Trang chủ</a></li>
+
+
+        <li class="has-sub">
+          <a href="/category/category.html?cat=tin-tuc">Tin tức</a>
+          <ul class="submenu">
+            <li><a href="/category/category.html?cat=tin-tuc&sub=tin-trong-nuoc">Tin trong nước</a></li>
+            <li><a href="/category/category.html?cat=tin-tuc&sub=tin-the-gioi">Tin thế giới</a></li>
+          </ul>
+        </li>
+
+        <li class="has-sub">
+          <a href="/category/category.html?cat=trai-nghiem-xanh">Trải nghiệm xanh</a>
+          <ul class="submenu">
+              <li><a href="/category/category.html?cat=trai-nghiem-xanh&sub=am-thuc">Ẩm thực</a></li>
+              <li><a href="/category/category.html?cat=trai-nghiem-xanh&sub=diem-den">Điểm đến</a></li>
+              <li><a href="/category/category.html?cat=trai-nghiem-xanh&sub=ba-lo-du-lich">Ba lô du lịch</a></li>
+              <li><a href="/category/category.html?cat=trai-nghiem-xanh&sub=di-chuyen-xanh">Di chuyển xanh</a></li>
+          </ul>
+        </li>
+
+      <li class="has-sub">
+          <a href="/category/category.html?cat=guong-mat-sinh-thai">Gương mặt sinh thái</a>
+          <ul class="submenu">
+            <li><a href="/category/category.html?cat=guong-mat-sinh-thai&sub=nguoi-dan-xanh">Người dân xanh</a></li>
+            <li><a href="/category/category.html?cat=guong-mat-sinh-thai&sub=su-gia-van-hoa">Sứ giả văn hóa</a></li>
+            <li><a href="/category/category.html?cat=guong-mat-sinh-thai&sub=doanh-nghiep-xanh">Doanh nghiệp xanh</a></li>
+          </ul>
+        </li>
+
+
+
+        <li class="has-sub">
+          <a href="/category/category.html?cat=goc-hoc-thuat">Góc học thuật</a>
+          <ul class="submenu">
+            <li><a href="/category/category.html?cat=goc-hoc-thuat&sub=cong-nghe-xanh">Công nghệ xanh</a></li>
+            <li><a href="/category/category.html?cat=goc-hoc-thuat&sub=tri-thuc-ben-vung">Tri thức bền vững</a></li>
+            <li><a href="/category/category.html?cat=goc-hoc-thuat&sub=du-lieu-chinh-sach">Dữ liệu & chính sách</a></li>
+          </ul>
+        </li>
+
+        <li class="has-sub">
+          <a href="/category/category.html?cat=multimedia">Multimedia</a>
+          <ul class="submenu">
+            <li><a href="/category/category.html?cat=multimedia&sub=anh">Ảnh</a></li>
+            <li><a href="/category/category.html?cat=multimedia&sub=video">Video</a></li>
+            <li><a href="/category/category.html?cat=multimedia&sub=infographic">Infographic</a></li>
+            <li><a href="/category/category.html?cat=multimedia&sub=e-magazine">E-magazine</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <!-- ===================== TIÊU ĐIỂM ===================== -->
+<section class="highlight-section container anim-in">
+  <h2 class="section-title">Tiêu điểm</h2>
+
+  <div class="highlight-grid">
+
+    <!-- BÊN TRÁI -->
+    <div class="highlight-left">
+      <img id="highlight-img" class="big-img">
+
+      <div class="highlight-card">
+        <h3 id="highlight-title"></h3>
+        <p id="highlight-sapo"></p>
+        <p id="highlight-author"></p>
+      </div>
+    </div>
+
+
+    <!-- BÊN PHẢI -->
+ <div class="highlight-right">
+  <img src="img/adv1.jpg" class="adv-img">
+  <div class="highlight-list" id="highlight-list"></div>
+</div>
+<br>
+
+</section>
+
+<!-- ===================== ĐỌC NHIỀU ===================== -->
+<section class="trending-section container anim-in">
+  <h2 class="section-title">Đọc nhiều</h2>
+
+  <div class="trending-grid">
+
+    <!-- Cột trái -->
+    <div class="trending-left">
+      <div class="eco-widget">
+        <h3>🌿 Chỉ số xanh hôm nay</h3>
+        <div class="eco-item" id="eco-aqi">AQI: Đang tải...</div>
+        <div class="eco-item" id="eco-temp">Nhiệt độ: ...</div>
+        <div class="eco-item" id="eco-uv">Chỉ số UV: ...</div>
+        <div class="eco-item" id="eco-quote">💬 "Mỗi hành động nhỏ là một thay đổi lớn."</div>
+      </div>
+    </div>
+
+    <!-- Cột phải -->
+    <div class="trending-right">
+      <div id="trending-list" class="trending-list"></div>
+    </div>
+  </div>
+
+</section>
+
+
+  <!-- ===================== TIN TỨC ===================== -->
+  <section class="block-section container anim-in tintuc-bg">
+  <h2 class="section-title category-link" data-cat="tin-tuc">Tin tức</h2>
+
+  <div class="tintuc-3col">
+
+    <!-- CỘT 1: Bài lớn -->
+    <div id="tintuc-big"></div>
+
+    <!-- CỘT 2: 3 bài nhỏ -->
+    <div id="tintuc-small" class="tintuc-small-col"></div>
+
+    <!-- CỘT 3: Album ảnh -->
+    <div class="tintuc-adv">
+      <h3 class="adv-title">🌿 Sản phẩm xanh nổi bật</h3>
+
+      <div class="adv-slider">
+        <button class="adv-prev">‹</button>
+        <img id="adv-img" src="/img/adv-album1.jpg">
+        <button class="adv-next">›</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- ===================== TRẢI NGHIỆM XANH ===================== -->
+<section class="block-section container anim-in">
+    <h2 class="section-title category-link" data-cat="trai-nghiem-xanh">Trải nghiệm xanh</h2>
+
+<div id="section-trainghiem"></div>
+
+  </section>
+
+  <!-- ===================== GƯƠNG MẶT SINH THÁI ===================== -->
+  <section class="block-section container anim-in guong-mat-sinh-thai-bg">
+
+    <h2 class="section-title category-link" data-cat="guong-mat-sinh-thai">Gương mặt sinh thái</h2>
+    <div class="news-grid" id="section-guongmat"></div>
+  </section>
+
+  <!-- ===================== GÓC HỌC THUẬT ===================== -->
+<section class="block-section container anim-in">
+
+    <h2 class="section-title category-link" data-cat="goc-hoc-thuat">Góc học thuật</h2>
+    <div id="section-gochocthuat"></div>
+  </section>
+
+  <!-- ===================== MULTIMEDIA ===================== -->
+ <section class="block-section container anim-in">
+
+    <h2 class="section-title category-link" data-cat="multimedia">Multimedia</h2>
+    <div class="news-grid" id="section-multimedia"></div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <h1>Tạp chí điện tử DU LỊCH XANH</h1>
+
+    <p>
+      Cơ quan chủ quản: Bộ Văn hóa, Thể thao và Du lịch<br>
+      Giấy phép số ABSJ/124-FAUF<br>
+      Chịu trách nhiệm nội dung: Nguyễn Hoàng Ngân, Nguyễn Thị Huyền<br>
+      Trụ sở chính: 123 Đường ABC, Hà Nội<br>
+      Điện thoại: 0123456789<br>
+      Email: tcdlx@gmail.com
+    </p>
+
+    <p class="copyright">
+      © Tạp chí Du lịch xanh là sản phẩm cuối kì môn TCĐT của nhóm học sinh lớp XBĐT-K42
+    </p>
+  </footer>
+
+<button id="backToTop" class="back-to-top">
+  ↑
+</button>
+
+
+<!-- POPUP THỜI TIẾT -->
+<div id="weather-popup" class="weather-popup hidden">
+  <div class="weather-box">
+    <h3>Thời tiết hôm nay</h3>
+    <p id="weather-status">Đang tải...</p>
+    <button onclick="closeWeatherPopup()">Đóng</button>
+  </div>
+</div>
+
+<script src="home/home.js"></script>
+<script src="home/weather.js"></script>
+
+</body>
+</html>
+
+<script>
+const advImgs = [
+  "/img/adv-album1.jpg",
+  "/img/adv-album2.jpg",
+  "/img/adv-album3.jpg",
+  "/img/adv-album4.jpg"
+];
+let advIndex = 0;
+
+const advImgEl = document.getElementById("adv-img");
+
+document.querySelector(".adv-next").onclick = () => {
+  advIndex = (advIndex + 1) % advImgs.length;
+  advImgEl.src = advImgs[advIndex];
+};
+
+document.querySelector(".adv-prev").onclick = () => {
+  advIndex = (advIndex - 1 + advImgs.length) % advImgs.length;
+  advImgEl.src = advImgs[advIndex];
+};
+</script>

@@ -1,0 +1,610 @@
+/* ===============================
+   STYLE CHO NỘI DUNG BÀI VIẾT
+================================ */
+
+.post-content {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.post-content p {
+  margin: 16px 0;
+}
+
+/* ====== BLOCKQUOTE ====== */
+.post-content blockquote {
+  border-left: 5px solid #4c7433;
+  margin: 20px 0;
+  padding: 12px 20px;
+  background: #f3f8f1;
+  font-style: italic;
+  color: #2d4d21;
+  border-radius: 4px;
+}
+
+/* ====== ẢNH TRONG BÀI ====== */
+.post-content img {
+  max-width: 100%;
+  display: block;         /* Bắt buộc để margin auto hoạt động */
+  margin: 20px auto;
+  border-radius: 8px;
+}
+
+/* ====== INLINE IMAGE LIST (Tiptap gallery) ====== */
+.post-content figure {
+  text-align: center;  
+}
+.post-content figure img {
+  margin: 10px auto;
+}
+
+/* ====== VIDEO / IFRAME ====== */
+.post-content iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  border: none;
+}
+
+/* ====== ALIGNMENT FIX ====== */
+.post-content [style*="text-align:center"] {
+  text-align: center !important;
+}
+
+.post-content [style*="text-align:right"] {
+  text-align: right !important;
+}
+
+/* ====== YOUTUBE RESPONSIVE ====== */
+.post-content .youtube-video,
+.post-content .iframeWrapper,
+.post-content .youtube-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 20px 0;
+}
+
+.post-content .youtube-video iframe,
+.post-content .iframeWrapper iframe,
+.post-content .youtube-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* ====== LIST ====== */
+.post-content ul, 
+.post-content ol {
+  padding-left: 24px;
+  margin: 14px 0;
+}
+
+.post-content li {
+  margin-bottom: 6px;
+}
+
+/* ====== HEADING ====== */
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: #2f4f25;
+  font-family: "Merriweather";
+}
+
+/* ====== STRONG ====== */
+.post-content strong {
+  color: #000;
+}
+
+/* ===============================
+   STYLE CHO NỘI DUNG BÀI VIẾT
+================================ */
+
+.post-content {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.post-content p {
+  margin: 16px 0;
+}
+
+/* ====== BLOCKQUOTE ====== */
+.post-content blockquote {
+  border-left: 5px solid #4c7433;
+  margin: 20px 0;
+  padding: 12px 20px;
+  background: #f3f8f1;
+  font-style: italic;
+  color: #2d4d21;
+  border-radius: 4px;
+}
+
+/* ====== ẢNH TRONG BÀI ====== */
+.post-content img {
+  max-width: 100%;
+  display: block;         /* Bắt buộc để margin auto hoạt động */
+  margin: 20px auto;
+  border-radius: 8px;
+}
+
+/* ====== INLINE IMAGE LIST (Tiptap gallery) ====== */
+.post-content figure {
+  text-align: center;  
+}
+.post-content figure img {
+  margin: 10px auto;
+}
+
+/* ====== VIDEO / IFRAME ====== */
+.post-content iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  border: none;
+}
+
+/* ====== ALIGNMENT FIX ====== */
+.post-content [style*="text-align:center"] {
+  text-align: center !important;
+}
+
+.post-content [style*="text-align:right"] {
+  text-align: right !important;
+}
+
+/* ====== YOUTUBE RESPONSIVE ====== */
+.post-content .youtube-video,
+.post-content .iframeWrapper,
+.post-content .youtube-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 20px 0;
+}
+
+.post-content .youtube-video iframe,
+.post-content .iframeWrapper iframe,
+.post-content .youtube-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* ====== LIST ====== */
+.post-content ul, 
+.post-content ol {
+  padding-left: 24px;
+  margin: 14px 0;
+}
+
+.post-content li {
+  margin-bottom: 6px;
+}
+
+/* ====== HEADING ====== */
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: #2f4f25;
+  font-family: "Merriweather";
+}
+
+/* ====== STRONG ====== */
+.post-content strong {
+  color: #000;
+}
+
+/* =============================
+   FIX ALIGN CHỮ TỪ CMS
+============================= */
+.post-content p[style*="text-align:center"],
+.post-content div[style*="text-align:center"],
+.post-content span[style*="text-align:center"],
+.post-content h1[style*="text-align:center"],
+.post-content h2[style*="text-align:center"],
+.post-content h3[style*="text-align:center"],
+.post-content h4[style*="text-align:center"] {
+  text-align: center !important;
+}
+
+.post-content p[style*="text-align:right"],
+.post-content div[style*="text-align:right"],
+.post-content span[style*="text-align:right"],
+.post-content h1[style*="text-align:right"],
+.post-content h2[style*="text-align:right"],
+.post-content h3[style*="text-align:right"],
+.post-content h4[style*="text-align:right"] {
+  text-align: right !important;
+}
+
+/* =============================
+   LAYOUT 2 CỘT BÀI VIẾT
+============================= */
+.post-container {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* =============================
+   SIDEBAR BÊN PHẢI
+============================= */
+.post-right {
+  border-left: 4px solid #e0e8dd;
+  padding-left: 24px;
+}
+
+.post-right .side-title {
+  font-size: 22px;
+  margin-bottom: 14px;
+  color: #2f4f25;
+}
+
+/* Trending Items */
+#post-trending .trend-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+#post-trending .trend-item:hover {
+  transform: translateX(4px);
+}
+
+#post-trending img {
+  width: 110px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+#post-trending strong {
+  color: #2b3e20;
+  font-size: 16px;
+}
+
+#post-trending small {
+  color: #777;
+}
+
+/* ============================
+      COMMENT SECTION
+============================ */
+/* Căn comment-section thẳng với nội dung bài viết */
+.comment-section {
+  padding-left: 180px;   /* ⭐ Điều chỉnh tùy theo layout */
+  padding-right: 20px;
+}
+
+.post-container {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 40px;
+}
+
+
+.cmt-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2b3e20;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.comment-box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.cmt-input {
+  flex: 1;
+  height: 45px;
+  font-size: 16px;
+  padding: 10px 14px;
+  border: 1px solid #b6c5b3;
+  border-radius: 30px;
+  outline: none;
+}
+
+.cmt-input:focus {
+  border-color: #5f8d3f;
+}
+
+.cmt-send {
+  padding: 8px 22px;
+  border-radius: 20px;
+  background: #6c9e4f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.cmt-send:hover {
+  background: #5b8a42;
+}
+
+.comment-section.narrow {
+  max-width: 70%;
+  margin: 40px 0;
+}
+
+
+
+.comment-box {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.cmt-input {
+  flex: 1;
+  height: 42px;
+  padding: 10px 15px;
+  border-radius: 30px;
+  font-size: 15px;
+}
+
+.cmt-send {
+  padding: 8px 26px;
+  font-size: 15px;
+  border-radius: 22px;
+}
+
+
+
+/* ============================
+      RELATED POSTS (GRID)
+============================ */
+.related-section {
+  margin-top: 40px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.related-item {
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.related-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.related-item h4 {
+  font-size: 17px;
+  margin: 10px 0 6px;
+  font-weight: 700;
+  color: #2b3e20;
+  line-height: 1.3;
+}
+
+.related-item p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.related-item:hover {
+  transform: translateY(-3px);
+}
+
+/* ==========================
+      TOOLBAR DỌC TRÁI
+========================== */
+/* ==========================
+      TOOLBAR DỌC GỌN
+========================== */
+.reading-toolbar {
+  position: fixed;
+  top: 350px;
+  left: 100px;
+
+  width: 48px;                /* ⭐ hẹp lại */
+  padding: 12px 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;        /* ⭐ căn giữa nút */
+  gap: 10px;
+
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.55);
+  border-radius: 14px;
+
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  z-index: 9999;
+}
+
+/* NÚT */
+.reading-toolbar button {
+  width: 36px;
+  height: 36px;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  border-radius: 8px;
+  border: 1px solid #3d6433;
+  background: white;
+  color: #3d6433;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.reading-toolbar button:hover {
+  background: #3d6433;
+  color: white;
+}
+
+/* SELECT FONT */
+.reading-toolbar select {
+  width: 40px;
+  height: 36px;
+
+  font-size: 12px;
+  padding: 0;
+  text-align: center;
+
+  border-radius: 8px;
+  border: 1px solid #3d6433;
+  color: #3d6433;
+  background: white;
+
+  cursor: pointer;
+}
+
+.reading-toolbar select:hover {
+  background: #3d6433;
+  color: white;
+}
+
+/* =======================================================
+   FOOTER
+======================================================= */
+.footer { 
+  background: linear-gradient(90deg,#5f8d3f 0%,#3b5a24 100%); 
+  color:white; 
+  padding: 20px 0 40px;           
+  margin-bottom: 0 !important; 
+}
+.footer-inner {
+  max-width: 1320px;
+  margin: auto;
+  padding: 40px 50px 50px; 
+}
+
+
+.footer h1 {
+    font-size: 28px;
+    padding-left: 20px;
+     margin-bottom: 14px;
+  }
+
+  .footer p {
+    padding-left: 20px;
+    font-size: 14px;
+     margin-bottom: 10px;
+  }
+
+  /* ================================
+   ALBUM DỌC: ĐIỂM ĐẾN XANH
+================================ */
+.destination-slider {
+  margin-top: 35px;
+  background: #0c3b1f;
+  padding: 16px;
+  border-radius: 14px;
+  color: #fff;
+}
+
+.destination-slider .side-title {
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.dest-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.dest-card h4 {
+  font-size: 17px;
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+
+.dest-card small {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.dest-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.9;
+  margin-top: 8px;
+}
+
+.dest-nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dest-nav button {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: none;
+  background: #ffffff33;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.dest-nav button:hover {
+  background: #ffffff55;
+}
+
+#dest-index {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.dest-card img {
+  transition: transform 0.25s, opacity 0.25s;
+  cursor: pointer;
+}
+
+.dest-card img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}

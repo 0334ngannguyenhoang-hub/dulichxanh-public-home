@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Chuyên mục</title>
+
+  <!-- CSS chung -->
+  <link rel="stylesheet" href="../home/style.css" />
+
+  <!-- CSS riêng của category -->
+  <link rel="stylesheet" href="category.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div id="topbar-container"></div>
+  <div id="header-container"></div>
+  <div id="menu-container"></div>
+
+  <!-- Load cấu trúc header từ index tự động -->
+<script>
+async function loadCommonLayout() {
+  const res = await fetch("../index.html");
+  const text = await res.text();
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(text, "text/html");
+
+  document.getElementById("topbar-container").innerHTML =
+    doc.querySelector(".topbar").outerHTML;
+
+  document.getElementById("header-container").innerHTML =
+    doc.querySelector(".header").outerHTML;
+
+  document.getElementById("menu-container").innerHTML =
+    doc.querySelector(".menu").outerHTML;
+
+  /* Fix Logo + Home link */
+  const logo = document.querySelector(".logo a");
+  if (logo) logo.href = "/index.html";
+
+  const homeBtn = document.querySelector(".menu-center li:first-child a");
+  if (homeBtn) homeBtn.href = "/index.html";
+
+  /* ⭐ RENDER SUB BUTTONS + LOAD CATEGORY */
+  renderSubButtons();
+  loadCategory();
+
+  /* ⭐ Rebind weather popup */
+  initWeatherPopup();
+
+  /* ⭐ Restart Banner */
+  initBannerCarousel();
+}
+loadCommonLayout();
+</script>
+
+
+<script>
+function initWeatherPopup() {
+  const icon = document.querySelector(".weather-icon");
+
+  if (!icon) {
+    console.warn("⚠ weather-icon chưa load xong");
+    return;
+  }
+
+  icon.addEventListener("click", () => {
+    document.getElementById("weather-popup").classList.remove("hidden");
+
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=21.03&longitude=105.83&current_weather=true")
+      .then(res => res.json())
+      .then(data => {
+        const w = data.current_weather;
+        document.getElementById("weather-status").innerHTML = `
+          ⛅ Nhiệt độ: <b>${w.temperature}°C</b><br>
+          💨 Gió: ${w.windspeed} km/h<br>
+          🕒 ${w.time.replace("T", " ")}
+        `;
+      });
+  });
+}
+
+function closeWeatherPopup() {
+  document.getElementById("weather-popup").classList.add("hidden");
+}
+</script>
+
+
+<script>
+  document.addEventListener("click", (e) => {
+    const title = document.getElementById("cat-title");
+    if (e.target === title) {
+      window.location.href = `category.html?cat=${cat}`;
+    }
+  });
+</script>
+
+
+  <!-- ===================== CHUYÊN MỤC ===================== -->
+  <section class="category-header container anim-in">
+    <h1 id="cat-title" class="cat-title-btn"></h1>
+
+    <div id="cat-sub" class="subcategory-list"></div>
+  </section>
+
+  <!-- ===================== LIST BÀI VIẾT ===================== -->
+  <section class="category-content container anim-in">
+  <div class="category-grid">
+
+    <!-- CỘT TRÁI -->
+    <div id="cat-main" class="cat-main"></div>
+
+    <!-- CỘT PHẢI -->
+    <div class="cat-right">
+
+      <img src="../img/adv1.jpg" class="cat-adv">
+
+      <h3 class="side-title">🔥 Bài đọc nhiều</h3>
+      <div id="cat-trending" class="cat-trending"></div>
+
+    </div>
+
+  </div>
+</section>
+
+<button id="backToTop" class="back-to-top">↑</button>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p style="padding-left: 50px">
+      © Tạp chí Du lịch Xanh
+    </p>
+  </footer>
+
+
+<!-- POPUP THỜI TIẾT -->
+<div id="weather-popup" class="weather-popup hidden">
+  <div class="weather-box">
+    <h3>Thời tiết hôm nay</h3>
+    <p id="weather-status">Đang tải...</p>
+    <button onclick="closeWeatherPopup()">Đóng</button>
+  </div>
+</div>
+
+<script src="../home/home.js"></script>
+<script src="category.js"></script>
+</body>
+
+</html>

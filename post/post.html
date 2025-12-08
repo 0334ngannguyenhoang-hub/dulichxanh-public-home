@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bài viết</title>
+
+  <!-- CSS chung -->
+  <link rel="stylesheet" href="../home/style.css">
+
+  <!-- CSS riêng -->
+  <link rel="stylesheet" href="post.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="reading-toolbar">
+  <button id="fontInc" title="Tăng cỡ chữ">A+</button>
+  <button id="fontDec" title="Giảm cỡ chữ">A-</button>
+
+  <select id="fontSelect" title="Đổi phông">
+    <option value="Inter">Inter</option>
+    <option value="Merriweather">Merriweather</option>
+    <option value="Georgia">Georgia</option>
+    <option value="Times New Roman">Times New Roman</option>
+  </select>
+</div>
+
+
+  <!-- Layout load động -->
+  <div id="topbar-container"></div>
+  <div id="header-container"></div>
+  <div id="menu-container"></div>
+
+<script>
+async function loadCommonLayout() {
+  const res = await fetch("../index.html");
+  const html = await res.text();
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+
+  document.getElementById("topbar-container").innerHTML =
+    doc.querySelector(".topbar").outerHTML;
+
+  document.getElementById("header-container").innerHTML =
+    doc.querySelector(".header").outerHTML;
+
+  document.getElementById("menu-container").innerHTML =
+    doc.querySelector(".menu").outerHTML;
+
+  // FIX HOME + LOGO
+  document.querySelector(".logo a")?.setAttribute("href", "/index.html");
+  document.querySelector(".menu-center li:first-child a")?.setAttribute("href", "/index.html");
+
+  // RE-BIND POPUP WEATHER SAU KHI LAYOUT ĐƯỢC GẮN
+  if (typeof initWeatherPopup === "function") initWeatherPopup();
+
+  // Sticky menu
+  if (typeof initStickyMenu === "function") initStickyMenu();
+}
+
+loadCommonLayout();
+</script>
+
+
+  <!-- ======= BÀI VIẾT ======= -->
+  <section class="post-container container anim-in">
+
+    <div class="post-left">
+
+      <h1 id="post-title" class="post-title"></h1>
+
+      <p class="post-meta">
+        <span id="post-author"></span> • 
+        <span id="post-date"></span>
+      </p>
+
+      <p id="post-sapo" class="post-sapo"></p>
+
+      <article id="post-content" class="post-content"></article>
+
+    </div>
+
+    <!-- ======= SIDEBAR ======= -->
+    <div class="post-right">
+      <h3 class="side-title">🔥 Bài đọc nhiều</h3>
+      <div id="post-trending"></div>
+
+      <div class="destination-slider">
+          <h3 class="side-title">🌿 Điểm đến xanh</h3>
+
+          <div class="dest-card">
+              <img id="dest-img">
+              <h4 id="dest-name"></h4>
+              <small id="dest-province"></small>
+              <p id="dest-desc"></p>
+          </div>
+
+          <div class="dest-nav">
+              <button id="dest-prev">←</button>
+              <span id="dest-index">1 / 5</span>
+              <button id="dest-next">→</button>
+          </div>
+        </div>
+
+    </div>
+
+  </section>
+
+  <!-- ======= BÌNH LUẬN ======= -->
+<section class="comment-section narrow container anim-in">
+  <h3 class="cmt-title">💬 Bình luận</h3>
+
+  <div class="comment-box">
+    <input type="text" class="cmt-input" placeholder="Chia sẻ suy nghĩ của bạn...">
+    <button class="cmt-send">SEND</button>
+  </div>
+</section>
+
+
+
+  <!-- ======= CÙNG CHỦ ĐỀ ======= -->
+  <section class="related-section container">
+    <h3 class="side-title">👉 Cùng chủ đề</h3>
+    <div id="related-list" class="related-grid"></div>
+  </section>
+
+    <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <h1>Tạp chí điện tử DU LỊCH XANH</h1>
+
+    <p>
+      Cơ quan chủ quản: Bộ Văn hóa, Thể thao và Du lịch<br>
+      Giấy phép số ABSJ/124-FAUF<br>
+      Chịu trách nhiệm nội dung: Nguyễn Hoàng Ngân, Nguyễn Thị Huyền<br>
+      Trụ sở chính: 123 Đường ABC, Hà Nội<br>
+      Điện thoại: 0123456789<br>
+      Email: tcdlx@gmail.com
+    </p>
+
+    <p class="copyright">
+      © Tạp chí Du lịch xanh là sản phẩm cuối kì môn TCĐT của nhóm học sinh lớp XBĐT-K42
+    </p>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop" class="back-to-top">↑</button>
+
+  <!-- POPUP WEATHER -->
+  <div id="weather-popup" class="weather-popup hidden">
+    <div class="weather-box">
+      <h3>Thời tiết hôm nay</h3>
+      <p id="weather-status">Đang tải...</p>
+      <button onclick="closeWeatherPopup()">Đóng</button>
+    </div>
+  </div>
+
+  <!-- SCRIPT phải đặt *sau cùng* để DOM tồn tại -->
+  <script src="../home/weather.js"></script>
+  <script src="../home/home.js"></script>
+  <script src="post.js"></script>
+
+</body>
+
+</html>

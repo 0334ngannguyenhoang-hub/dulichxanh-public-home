@@ -1,0 +1,623 @@
+/* =======================================================
+   RESET + BASE
+======================================================= */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #111;
+  line-height: 1.5;
+}
+
+/* Tiêu đề chung */
+h1, h2, .section-title, .news-title {
+  font-family: 'Merriweather', serif;
+}
+
+/* =======================================================
+   GLOBAL CONTAINER (cố định theo toàn trang)
+======================================================= */
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 50px; /* desktop padding */
+}
+
+/* mobile container padding reduced */
+@media (max-width: 768px) {
+  .container { padding: 0 18px; }
+}
+@media (max-width: 1024px) {
+  .container { padding: 0 30px; }
+}
+
+/* =======================================================
+   TOP BAR
+======================================================= */
+.topbar {
+  background: #f8f8f8;
+  padding: 6px 20px;
+  font-size: 13px;
+  color: #4e7533;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.topbar .left { display:flex; align-items:center; gap:12px; }
+.topbar .weather-icon { width:25px; }
+.topbar .right { display:flex; align-items:center; gap:14px; }
+
+.topbar input {
+  padding: 5px 12px;
+  border: 1px solid #b5c9a8;
+  border-radius: 20px;
+  outline: none;
+  width: 150px;
+}
+.search-btn {
+  background: #5f8d3f;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+/* =============================
+   HEADER: LOGO + BANNER
+   (fixed: make responsive, avoid overlap)
+============================== */
+.header {
+  background: white;
+  padding: 20px 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+/* Use flex so logo + banner wrap nicely */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap; /* allow banner to wrap under on very narrow screens */
+}
+
+/* Logo: keep fixed max width but allow shrink */
+.logo img {
+  width: 280px;     /* slightly smaller to avoid crowding */
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Banner: flexible area, won't push logo */
+.banner-carousel {
+  flex: 1 1 auto;
+  min-width: 260px;  /* prevents extreme squeeze */
+  height: 160px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Banner slides */
+.banner-slide { position:absolute; inset:0; opacity:0; transition:opacity .6s ease; }
+.banner-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+.banner-slide.active { opacity:1; }
+
+/* Banner smaller on small screens */
+@media (max-width:980px){ .banner-carousel{height:110px;} }
+@media (max-width:640px){ .banner-carousel{height:90px;} }
+
+/* =======================================================
+   MENU
+======================================================= */
+.menu {
+  width: 100%;
+  background: #5f8d3f;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  transition: all 0.25s ease;
+}
+.menu.stuck { box-shadow: 0 4px 14px rgba(0,0,0,0.15); background: #4c7433; }
+
+.menu-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 12px 20px;
+}
+
+.menu-center {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.menu-center li { position: relative; }
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 10px 6px;
+  font-weight: 500;
+}
+
+/* Dropdown */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  display: none;
+  min-width: 180px;
+  padding: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  z-index: 999;
+}
+.submenu li { list-style: none; }
+.submenu a { color: #2b3e20 !important; display:block; padding:10px 15px; font-size:16px; }
+.submenu a:hover { background: #e8f3e3; }
+.has-sub:hover .submenu { display:block; }
+
+/* =======================================================
+   SECTION TITLE
+======================================================= */
+.section-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #3c6526;
+  margin: 50px 0 20px;
+  border-left: 8px solid #3c6526;
+  padding-left: 12px;
+}
+
+/* =======================================================
+   TIÊU ĐIỂM (HIGHLIGHT)
+======================================================= */
+.highlight-section {
+  margin: 40px auto;
+  /* container padding handled by .container */
+}
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 30px;
+}
+
+.highlight-left { position: relative; }
+
+.big-img {
+  width: 100%;
+  height: 420px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.highlight-right { display:flex; flex-direction:column; gap:20px; }
+
+.highlight-small-item { display:flex; gap:12px; }
+.highlight-small-item img {
+  width: 110px; height: 75px; border-radius:8px; object-fit:cover;
+}
+
+/* Advertisement image: preserve aspect ratio (fix crop issue) */
+.adv-img {
+  width: 100%;
+  height: auto;          /* <<-- changed: keep natural proportion */
+  border-radius: 12px;
+  display: block;
+}
+
+/* Highlight overlay card (glass) */
+.highlight-card {
+  position: absolute;
+  left: 50%;
+  bottom: -70px;                    /* nổi lên 1 chút trên desktop */
+  transform: translateX(-50%);
+  width: 95%;
+  background: linear-gradient(135deg, rgba(83,206,243,0.18), rgba(255,255,255,0.65));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 22px 26px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  color: #1d1d1d;
+  border-radius: 14px;
+}
+
+/* On small screens make the card static so it doesn't overlap image */
+@media (max-width: 480px) {
+  .highlight-card {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-top: 12px;
+    bottom: auto;
+  }
+}
+
+.highlight-card h3 { font-size:25px; font-weight:700; margin-bottom:10px; }
+.highlight-card p { font-size:16px; color:#555; margin:4px 0; }
+
+/* =======================================================
+   NEWS BLOCK (CÁC CHUYÊN MỤC)
+======================================================= */
+.block-section {
+  margin: 60px auto;
+  /* container padding in .container */
+}
+
+/* Default two-column block (big + small) */
+.news-grid {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 24px;
+}
+
+.news-big img {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.news-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px 0 5px;
+  color: #2b3e20;
+}
+
+.news-sapo { font-size:15px; color:#555; margin:2px 0 6px; }
+.news-author { font-size:13px; color:#777; }
+
+.news-small { display:flex; flex-direction:column; gap:18px; }
+.news-small-item { display:flex; gap:12px; align-items:flex-start; }
+.news-small-item img { width:120px; height:90px; object-fit:cover; border-radius:6px; }
+
+/* =======================================================
+   TRENDING (ĐỌC NHIỀU)
+======================================================= */
+.trending-section { margin-top: 50px; }
+
+.trending-list { display:flex; flex-direction:column; gap:18px; }
+
+.trending-item {
+  display:flex; gap:14px; padding:12px; background:#f8f8f8; border-radius:10px;
+  cursor:pointer; transition:0.25s ease; border:1px solid #e3e3e3;
+}
+.trending-item:hover { background:#e7f3e5; transform: translateX(4px); }
+.trending-item img { width:120px; height:80px; object-fit:cover; border-radius:6px; }
+
+/* ===================== ECO WIDGET (CHỈ SỐ XANH) ===================== */
+.eco-widget {
+  background: #e9f5e5;
+  border: 1px solid #c8dfc3;
+  padding: 18px 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+.eco-widget h3 { margin:0 0 12px; font-size:20px; color:#2f5e1f; font-weight:700; }
+.eco-item { background:white; padding:10px 14px; border-radius:10px; margin-bottom:10px; border-left:5px solid #5f8d3f; font-size:15px; color:#2b3e20; }
+
+/* =======================================================
+   TRẢI NGHIỆM XANH — 3 CỘT (clean + responsive)
+======================================================= */
+.tn-grid {
+  display: grid;
+  grid-template-columns: 28% 44% 28%;
+  gap: 26px;
+  align-items: start;
+}
+
+/* ensure section container doesn't get overridden */
+#section-trainghiem { width: 100%; }
+
+/* Widget (col 1) */
+.recycle-widget {
+  background: #eef7e9;
+  padding: 22px 24px;
+  border-radius: 14px;
+  border-left: 7px solid #5f8d3f;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  min-height: 260px;
+}
+.recycle-widget h3 { margin-top:0; margin-bottom:14px; font-size:20px; color:#2b3e20; font-weight:700; }
+#recycle-list { padding-left:0; list-style:none; margin:0; }
+.recycle-item { background:white; padding:10px 14px; border-radius:10px; border-left:5px solid #5f8d3f; margin-bottom:10px; color:#3d4c38; font-size:15px; line-height:1.4; }
+
+/* Col 2: large article */
+.tn-big img { width:100%; height:280px; object-fit:cover; border-radius:12px; }
+
+/* Col 3: small list */
+.tn-small-list { display:flex; flex-direction:column; gap:16px; overflow:hidden; }
+.tn-small-item { display:flex; gap:12px; cursor:pointer; }
+.tn-small-item img { width:120px; height:85px; object-fit:cover; border-radius:8px; }
+
+/* Tablet: make widget span full width and two-column for content */
+@media (max-width: 1024px) {
+  .tn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .recycle-widget { grid-column: 1 / -1; } /* put widget above */
+}
+
+/* Mobile: single column stack */
+@media (max-width: 768px) {
+  .tn-grid { grid-template-columns: 1fr; }
+}
+
+/* =======================================================
+   GÓC HỌC THUẬT — 4 bài ngang
+======================================================= */
+.academic-grid { display:grid; grid-template-columns: repeat(4,1fr); gap:26px; margin-top:18px; }
+.academic-item img { width:100%; height:180px; border-radius:12px; object-fit:cover; margin-bottom:10px; }
+.academic-title { font-size:18px; font-weight:600; color:#2b3e20; line-height:1.35; }
+
+/* academic responsive */
+@media (max-width: 768px) {
+  .academic-grid { grid-template-columns: repeat(2,1fr); }
+  .academic-item img { height:140px; }
+  .academic-title { font-size:15px; }
+}
+
+/* =======================================================
+   TINTUC & GUONG MAT BLOCK BACKGROUNDS
+======================================================= */
+
+
+
+.guong-mat-sinh-thai-bg { background: #e9f5e5; padding:30px 40px; border-radius:16px; }
+.guong-mat-sinh-thai-bg .section-title { margin-top:0; }
+
+/* =======================================================
+   HOVER / TRANSITIONS / UTILS
+======================================================= */
+img { transition: transform .45s ease, filter .35s ease; }
+.big-img:hover, .highlight-slide img:hover, .news-big img:hover, .news-small-item img:hover, .highlight-small-item img:hover {
+  transform: scale(1.05);
+  filter: brightness(0.92);
+}
+
+/* Animations for items */
+.anim-in { opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease; }
+.anim-in.visible { opacity:1; transform:translateY(0); }
+
+/* =======================================================
+   FOOTER
+======================================================= */
+.footer {
+  background: linear-gradient(90deg,#5f8d3f 0%,#3b5a24 100%);
+  color:white;
+  padding: 40px 0 50px;
+  margin-bottom: 0 !important;
+}
+.footer-inner { max-width:1320px; margin:auto; padding:40px 50px 50px; }
+.footer h1 { font-size:28px; padding-left:20px; margin-bottom:14px; }
+.footer p { padding-left:20px; font-size:14px; margin-bottom:14px; }
+
+/* BACK TO TOP */
+.back-to-top {
+  position: fixed; bottom: 40px; right: 40px; width: 50px; height: 50px; background: #5f8d3f; color: white;
+  border: none; border-radius: 50%; font-size: 26px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 999; opacity: 0; pointer-events: none; transition: 0.3s ease;
+}
+.back-to-top.show { opacity:1; pointer-events:auto; }
+
+/* Small helpers */
+.hidden { display:none !important; }
+.center { text-align:center; }
+
+/* ===========================
+   GIẢM KÍCH THƯỚC SIDEBAR WIDGET
+=========================== */
+
+.post-layout {
+  display: grid;
+  grid-template-columns: 68% 32% !important; /* bài viết 68%, sidebar 32% */
+  gap: 30px;
+}
+
+/* Widget chung */
+.sidebar-widget {
+  transform: scale(0.92);      /* thu nhỏ nhẹ */
+  transform-origin: top right; /* thu theo góc phải để không lệch */
+}
+
+/* Nếu widget nào to quá thì giảm padding */
+.sidebar-widget,
+.eco-widget,
+.trending-list {
+  padding: 12px 16px !important;
+}
+
+/* Giảm font một chút để gọn */
+.sidebar-widget h3,
+.eco-widget h3 {
+  font-size: 18px !important;
+}
+
+.sidebar-widget li,
+.eco-widget li,
+.trending-item {
+  font-size: 20px !important;
+}
+
+/* Mobile: return to normal */
+@media (max-width: 768px) {
+  .post-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .sidebar-widget {
+    transform: none;
+  }
+}
+
+/* Tự động làm nhỏ tất cả widget trong sidebar */
+aside, .sidebar, #sidebar {
+  width: 30% !important;
+  max-width: 360px;
+}
+
+main, .post-content-area {
+  width: 70% !important;
+}
+
+
+/* ===========================
+   ĐỌC NHIỀU – GRID 2 CỘT
+=========================== */
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: 32% 68%;
+  gap: 26px;
+  align-items: start;
+}
+
+/* đảm bảo mỗi cột không tự phình */
+.trending-left,
+.trending-right {
+  width: 100%;
+}
+
+/* Responsive tablet/mobile → 1 cột */
+@media (max-width: 900px) {
+  .trending-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* TOPBAR ABOVE EVERYTHING */
+.topbar {
+  position: relative;
+  z-index: 5000;
+}
+
+/* WEATHER POPUP OVERLAY */
+.weather-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.weather-popup.hidden {
+  display: none;
+}
+
+.weather-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 260px;
+  text-align: center;
+  z-index: 10000;
+}
+
+
+/* ==========================================
+   TIN TỨC — 3 CỘT
+========================================== */
+.tintuc-3col {
+  display: grid;
+  grid-template-columns: 35% 35% 30%;
+  gap: 26px;
+  align-items: start;
+}
+
+/* ==== CỘT 1 — bài lớn ==== */
+.tintuc-big img {
+  width: 100%;
+  height: 290px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.tintuc-big-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2b3e20;
+  margin: 8px 0;
+}
+.tintuc-big-sapo {
+  color: #555;
+  margin: 6px 0 4px;
+}
+
+/* ==== CỘT 2 — bài nhỏ ==== */
+.tintuc-small-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.tintuc-small-item {
+  display: flex;
+  gap: 12px;
+  cursor: pointer;
+}
+.tintuc-small-item img {
+  width: 110px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* ==== CỘT 3 — album ==== */
+.tintuc-adv {
+  background: #eafaffc0;
+  padding: 18px;
+  border-radius: 14px;
+}
+
+.adv-slider {
+  position: relative;
+  width: 100%;
+  height: 330px;
+}
+
+.adv-slider img {
+  width: 100%;
+  height: 330px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.adv-prev, .adv-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.85);
+  border: none;
+  padding: 8px 12px;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.adv-prev { left: -10px; }
+.adv-next { right: -10px; }
+
+/* Responsive */
+@media (max-width: 940px) {
+  .tintuc-3col {
+    grid-template-columns: 1fr;
+  }
+}
