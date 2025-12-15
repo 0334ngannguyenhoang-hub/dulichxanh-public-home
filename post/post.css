@@ -608,3 +608,15 @@
   transform: scale(1.03);
   opacity: 0.9;
 }
+
+/* =========================
+   SAPO – căn giữa cho người đọc
+   ========================= */
+.post-sapo {
+  text-align: justify;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #555;
+  margin: 16px auto 24px;
+  max-width: 720px;
+}
