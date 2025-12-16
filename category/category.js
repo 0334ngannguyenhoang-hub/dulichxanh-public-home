@@ -171,3 +171,4 @@ function renderCategory(list) {
 function goPost(id) {
   window.location.href = `/post/post.html?id=${id}`;
 }
+

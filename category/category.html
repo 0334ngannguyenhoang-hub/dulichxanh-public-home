@@ -37,6 +37,12 @@ async function loadCommonLayout() {
 
   document.getElementById("menu-container").innerHTML =
     doc.querySelector(".menu").outerHTML;
+  
+    // ⏰ START CLOCK SAU KHI TOPBAR ĐƯỢC GẮN
+if (typeof startTopbarClock === "function") {
+  startTopbarClock();
+}
+
 
   /* Fix Logo + Home link */
   const logo = document.querySelector(".logo a");
@@ -98,6 +104,8 @@ function closeWeatherPopup() {
     }
   });
 </script>
+
+<script src="../home/topbar-time.js"></script>
 
 
   <!-- ===================== CHUYÊN MỤC ===================== -->

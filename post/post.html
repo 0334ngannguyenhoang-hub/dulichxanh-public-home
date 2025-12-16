@@ -50,6 +50,11 @@ async function loadCommonLayout() {
   document.getElementById("menu-container").innerHTML =
     doc.querySelector(".menu").outerHTML;
 
+    if (typeof startTopbarClock === "function") {
+  startTopbarClock();
+}
+
+  
   // FIX HOME + LOGO
   document.querySelector(".logo a")?.setAttribute("href", "/index.html");
   document.querySelector(".menu-center li:first-child a")?.setAttribute("href", "/index.html");
@@ -161,6 +166,8 @@ loadCommonLayout();
   <script src="../home/weather.js"></script>
   <script src="../home/home.js"></script>
   <script src="post.js"></script>
+  <script src="../home/topbar-time.js"></script>
+
 
 </body>
 

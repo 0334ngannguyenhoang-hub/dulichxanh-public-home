@@ -341,3 +341,40 @@ document.querySelectorAll(".category-link").forEach(el => {
   });
 });
 
+function updateTopbarTime() {
+  const now = new Date();
+
+  // 🇻🇳 Thứ tiếng Việt
+  const weekdays = [
+    "Chủ nhật",
+    "Thứ hai",
+    "Thứ ba",
+    "Thứ tư",
+    "Thứ năm",
+    "Thứ sáu",
+    "Thứ bảy"
+  ];
+
+  const dayName = weekdays[now.getDay()];
+  const day = String(now.getDate()).padStart(2, "0");
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const year = now.getFullYear();
+
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+
+  const dateText = `${dayName}, ${day}/${month}/${year}`;
+  const timeText = `${hours}:${minutes} GMT+7`;
+
+  const dateEl = document.getElementById("topbar-date");
+  const timeEl = document.getElementById("topbar-time");
+
+  if (dateEl) dateEl.innerText = dateText;
+  if (timeEl) timeEl.innerText = timeText;
+}
+
+// chạy ngay khi load
+updateTopbarTime();
+
+// cập nhật mỗi phút
+setInterval(updateTopbarTime, 60 * 1000);
