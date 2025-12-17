@@ -1,0 +1,60 @@
+/* ===========================
+   SEARCH PAGE
+=========================== */
+
+.search-page {
+  margin: 40px auto 60px;
+}
+
+/* Danh sách kết quả */
+.search-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* 1 item */
+.search-item {
+  display: flex;
+  gap: 18px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e2e2;
+  background: #fafafa;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.search-item:hover {
+  background: #e7f3e5;
+  transform: translateX(6px);
+}
+
+.search-item img {
+  width: 180px;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.search-info {
+  flex: 1;
+}
+
+.search-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2b3e20;
+  margin: 0 0 6px;
+}
+
+.search-sapo {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.search-meta {
+  font-size: 13px;
+  color: #777;
+}

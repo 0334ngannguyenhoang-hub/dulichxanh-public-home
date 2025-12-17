@@ -378,3 +378,4 @@ updateTopbarTime();
 
 // cập nhật mỗi phút
 setInterval(updateTopbarTime, 60 * 1000);
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tìm kiếm – Du lịch Xanh</title>
+
+  <!-- CSS dùng chung -->
+  <link rel="stylesheet" href="/home/style.css">
+  <link rel="stylesheet" href="search.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ===================== TOP BAR ===================== -->
+<div class="topbar">
+  <div class="left">
+    <span id="topbar-date">--</span>
+    <span>|</span>
+    <span id="topbar-time">--</span>
+    <span>|</span>
+    <span>Thời tiết</span>
+  </div>
+
+  <div class="right">
+    <input id="searchInput" placeholder="Tìm kiếm...">
+    <button id="searchBtn" class="search-btn">🔍</button>
+  </div>
+</div>
+
+<!-- ===================== LOGO + BANNER ===================== -->
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="/index.html">
+        <img src="/img/logo.png">
+      </a>
+    </div>
+
+    <div class="banner-carousel">
+      <div class="banner-slide active">
+        <img src="/img/banner1.jpg">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== MENU ===================== -->
+<nav class="menu">
+  <div class="menu-inner">
+    <ul class="menu-center">
+      <li><a href="/index.html">Trang chủ</a></li>
+      <li><a href="/category/category.html?cat=tin-tuc">Tin tức</a></li>
+      <li><a href="/category/category.html?cat=trai-nghiem-xanh">Trải nghiệm xanh</a></li>
+      <li><a href="/category/category.html?cat=guong-mat-sinh-thai">Gương mặt sinh thái</a></li>
+      <li><a href="/category/category.html?cat=goc-hoc-thuat">Góc học thuật</a></li>
+      <li><a href="/category/category.html?cat=multimedia">Multimedia</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===================== SEARCH RESULT ===================== -->
+<main class="container search-page">
+
+  <h2 id="search-title" class="section-title"></h2>
+
+  <div id="search-result" class="search-list"></div>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <h1>Tạp chí điện tử DU LỊCH XANH</h1>
+  <p>© Du lịch Xanh</p>
+</footer>
+
+<script src="/search-bar.js"></script>
+<script src="search.js"></script>
+<script src="/home/home.js"></script>
+
+</body>
+</html>
