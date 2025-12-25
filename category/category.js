@@ -83,23 +83,47 @@ renderSubButtons();
 // Load dữ liệu
 // ===============================================
 async function loadCategory() {
-  // Ưu tiên sub nếu có, không thì dùng cat
-  const slug = sub || cat;
-
   try {
-    const res = await fetch(
-      `https://dulichxanh-backend.onrender.com/public/category/${slug}`
-    );
+    let posts = [];
 
-    const posts = await res.json();
+    // ✅ Nếu đang ở subcategory → gọi thẳng
+    if (sub) {
+      const res = await fetch(
+        `https://dulichxanh-backend.onrender.com/public/category/${sub}`
+      );
+      posts = await res.json();
+    }
+
+    // ✅ Nếu ở chuyên mục to → gộp tất cả sub
+    else {
+      const subList = CATEGORY_MAP[cat] || [];
+
+      const requests = subList.map(s =>
+        fetch(`https://dulichxanh-backend.onrender.com/public/category/${s}`)
+          .then(res => res.json())
+          .catch(() => [])
+      );
+
+      const results = await Promise.all(requests);
+
+      // Gộp + loại trùng bài
+      const map = {};
+      results.flat().forEach(p => {
+        map[p._id] = p;
+      });
+
+      posts = Object.values(map);
+    }
 
     renderCategory(posts);
+
   } catch (err) {
     console.error("Load category error:", err);
     document.getElementById("cat-main").innerHTML =
       "<p>Không thể tải bài viết.</p>";
   }
 }
+
 
 
 loadCategory();
